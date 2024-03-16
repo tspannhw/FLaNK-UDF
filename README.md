@@ -35,6 +35,7 @@ CREATE TABLE `ssb`.`Meetups`.`flankslackmessages` (
   'topic' = 'flank-slack-messages'
 )
 
+### Join with slack user table
 
 ### call
 
@@ -48,4 +49,6 @@ WHERE messagetype = 'message'
 
 ### Resources
 
-https://github.com/tspannhw/FLaNK-CDC
+* https://github.com/tspannhw/FLaNK-CDC
+* https://blog.cloudera.com/implementing-and-using-udfs-in-cloudera-sql-stream-builder
+* 
