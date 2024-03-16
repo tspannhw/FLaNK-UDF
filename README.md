@@ -36,6 +36,22 @@ CREATE TABLE `ssb`.`Meetups`.`flankslackmessages` (
 )
 
 
+#### jdbc
+
+CREATE TABLE `ssb`.`Meetups`.`postgres_jdbc_meetupusers` (
+  `messagerealname` VARCHAR(2147483647),
+  `messageusertz` VARCHAR(2147483647),
+  `messageusername` VARCHAR(2147483647),
+  CONSTRAINT `PK_1601370` PRIMARY KEY (`messageusername`) NOT ENFORCED
+) WITH (
+  'password' = 'password1',
+  'url' = 'jdbc:postgresql://server:5432/tspann',
+  'connector' = 'jdbc',
+  'table-name' = 'meetupusers',
+  'username' = 'username'
+)
+
+select * from postgres_jdbc_meetupusers
 
 ### Join with slack user table
 
@@ -76,4 +92,6 @@ CREATE TABLE public.meetupusers (
 
 * https://github.com/tspannhw/FLaNK-CDC
 * https://blog.cloudera.com/implementing-and-using-udfs-in-cloudera-sql-stream-builder
+* https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/jdbc/
+* https://github.com/tspannhw/ClouderaFlinkSQLForPartners
 * 
