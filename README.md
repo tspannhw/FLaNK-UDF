@@ -35,6 +35,8 @@ CREATE TABLE `ssb`.`Meetups`.`flankslackmessages` (
   'topic' = 'flank-slack-messages'
 )
 
+
+
 ### Join with slack user table
 
 ### call
@@ -46,6 +48,29 @@ WHERE messagetype = 'message'
 
 
 ````
+
+#### POSTGRESQL TABLE
+
+````
+
+select * from meetupusers m 
+
+-- public.meetupusers definition
+
+-- Drop table
+
+-- DROP TABLE public.meetupusers;
+
+CREATE TABLE public.meetupusers (
+	messagerealname text NULL,
+	messageusertz text NULL,
+	messageusername text NOT NULL,
+	CONSTRAINT meetupusers_pkey PRIMARY KEY (messageusername)
+);
+
+
+````
+
 
 ### Resources
 
