@@ -91,7 +91,7 @@ FROM FLOWFILE
 
 ````
 
-#### POSTGRESQL TABLE
+#### POSTGRESQL TABLES
 
 ````
 
@@ -108,6 +108,42 @@ CREATE TABLE public.slackusers (
 	CONSTRAINT slackusers_pkey PRIMARY KEY (messageusername)
 );
 
+
+
+-- public.meetupusers definition
+
+-- Drop table
+
+-- DROP TABLE public.meetupusers;
+
+CREATE TABLE public.meetupusers (
+	fullname text NULL,
+	userid text NULL,
+	title text NULL,
+	memberid text NULL,
+	seqid text NULL,
+	"date" text NULL,
+	ts text NULL,
+	filename text NULL,
+	"uuid" text NULL,
+	"location" text NULL,
+	joinedgroupon text NULL,
+	lastvisitedgroupon text NULL,
+	lastattended text NULL,
+	totalrsvps text NULL,
+	rsvpedyes text NULL,
+	rsvpedmaybe text NULL,
+	rsvpedno text NULL,
+	meetupsattended text NULL,
+	noshows text NULL,
+	introduction text NULL,
+	photostatus text NULL,
+	assistantorganizer text NULL,
+	mailingliststatus text NULL,
+	memberprofile text NULL,
+	companyname text NULL,
+	topicsofinterest text NULL
+);
 
 ````
 
