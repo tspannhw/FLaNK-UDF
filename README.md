@@ -38,20 +38,20 @@ CREATE TABLE `ssb`.`Meetups`.`flankslackmessages` (
 
 #### jdbc
 
-CREATE TABLE `ssb`.`Meetups`.`postgres_jdbc_meetupusers` (
+CREATE TABLE `ssb`.`Meetups`.`postgres_jdbc_slackusers` (
   `messagerealname` VARCHAR(2147483647),
   `messageusertz` VARCHAR(2147483647),
   `messageusername` VARCHAR(2147483647),
   CONSTRAINT `PK_1601370` PRIMARY KEY (`messageusername`) NOT ENFORCED
 ) WITH (
-  'password' = 'password1',
-  'url' = 'jdbc:postgresql://server:5432/tspann',
+  'password' = 'pass1',
+  'url' = 'jdbc:postgresql://localhost:5432/tspann',
   'connector' = 'jdbc',
-  'table-name' = 'meetupusers',
-  'username' = 'username'
+  'table-name' = 'slackusers',
+  'username' = 'user1'
 )
 
-select * from postgres_jdbc_meetupusers
+select * from postgres_jdbc_slackusers
 
 ### Join with slack user table
 
@@ -65,23 +65,47 @@ WHERE messagetype = 'message'
 
 ````
 
+#### Calcite convert query
+
+````
+
+SELECT Name as fullname, "User ID" as userid,
+       Title as title, "Member ID" as memberid,
+       Location as location, "Joined Group on" as joinedgroupon,
+       "Last visited group on" as lastvisitedgroupon,
+       "Last Attended" as lastattended,
+       "Total RSVPs" as totalrsvps,
+       "RSVPed Yes" as rsvpedyes,
+       "RSVPed Maybe" as rsvpedmaybe,
+       "RSVPed No" as rsvpedno,
+       "Meetups attended" as meetupsattended,
+       "No shows" as noshows,
+       "Intro" as introduction,
+       "Photo" as photostatus,
+       "Assistant Organizer" as assistantorganizer,
+       "Mailing List" as mailingliststatus,
+       "URL of Member Profile" as memberprofile,
+       "What company do you represent?" as companyname,
+       "Topics of interest?" as topicsofinterest
+FROM FLOWFILE
+
+````
+
 #### POSTGRESQL TABLE
 
 ````
 
-select * from meetupusers m 
-
--- public.meetupusers definition
+-- public.slackusers definition
 
 -- Drop table
 
--- DROP TABLE public.meetupusers;
+-- DROP TABLE public.slackusers;
 
-CREATE TABLE public.meetupusers (
+CREATE TABLE public.slackusers (
 	messagerealname text NULL,
 	messageusertz text NULL,
 	messageusername text NOT NULL,
-	CONSTRAINT meetupusers_pkey PRIMARY KEY (messageusername)
+	CONSTRAINT slackusers_pkey PRIMARY KEY (messageusername)
 );
 
 
