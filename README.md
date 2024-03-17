@@ -53,6 +53,45 @@ CREATE TABLE `ssb`.`Meetups`.`postgres_jdbc_slackusers` (
 
 select * from postgres_jdbc_slackusers
 
+
+CREATE TABLE `ssb`.`Meetups`.`postgres_jdbc_meetupusers` (
+	`fullname VARCHAR(2147483647),
+	`userid VARCHAR(2147483647),
+	`title text NULL,
+	`memberid text NULL,
+	`seqid text NULL,
+	`date" text NULL,
+	`ts text NULL,
+	`filename text NULL,
+	`uuid" text NULL,
+	`location" text NULL,
+        `joinedgroupon text NULL,
+	`lastvisitedgroupon text NULL,
+	`lastattended text NULL,
+	`totalrsvps text NULL,
+	`rsvpedyes text NULL,
+	`rsvpedmaybe text NULL,
+	`rsvpedno text NULL,
+	`meetupsattended text NULL,
+	`noshows text NULL,
+	`introduction text NULL,
+	`photostatus text NULL,
+	`assistantorganizer text NULL,
+	`mailingliststatus` VARCHAR(2147483647),
+	`memberprofile` VARCHAR(2147483647),
+	`companyname` VARCHAR(2147483647),
+	`topicsofinterest` VARCHAR(2147483647),
+  CONSTRAINT `PK_1601261` PRIMARY KEY (`memberid`) NOT ENFORCED
+) WITH (
+  'password' = 'pass1',
+  'url' = 'jdbc:postgresql://localhost:5432/tspann',
+  'connector' = 'jdbc',
+  'table-name' = 'meetupusers',
+  'username' = 'user1'
+)
+
+select * from postgres_jdbc_meetupusers
+
 ### Join with slack user table
 
 ### call
