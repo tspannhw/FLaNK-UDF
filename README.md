@@ -145,6 +145,14 @@ CREATE TABLE public.meetupusers (
 	topicsofinterest text NULL
 );
 
+# Look at active users
+
+select * from meetupusers
+where lastvisitedgroupon like '%2024%' or 
+ lastvisitedgroupon like '%2023%'
+ and cast(totalrsvps as int) > 1
+ and mailingliststatus = 'Yes'
+order by lastvisitedgroupon asc
 ````
 
 
