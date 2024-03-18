@@ -102,6 +102,11 @@ FROM flankslackmessages
 WHERE messagetype = 'message'
 
 
+select fullname, companyname, topicsofinterest, memberprofile, userid, memberid, location, totalrsvps, rsvpedyes,rsvpedmaybe,rsvpedno,noshows,mailingliststatus,lastattended
+from postgres_jdbc_meetupusers
+where fullname like '%Spann%'
+
+
 ````
 
 #### Calcite convert query
@@ -127,6 +132,29 @@ SELECT Name as fullname, "User ID" as userid,
        "What company do you represent?" as companyname,
        "Topics of interest?" as topicsofinterest
 FROM FLOWFILE
+
+### for non nyc
+
+SELECT Name as fullname, "User ID" as userid,
+       Title as title, "Member ID" as memberid,
+       Location as location, "Joined Group on" as joinedgroupon,
+       "Last visited group on" as lastvisitedgroupon,
+       "Last Attended" as lastattended,
+       "Total RSVPs" as totalrsvps,
+       "RSVPed Yes" as rsvpedyes,
+       "RSVPed Maybe" as rsvpedmaybe,
+       "RSVPed No" as rsvpedno,
+       "Meetups attended" as meetupsattended,
+       "No shows" as noshows,
+       "Intro" as introduction,
+       "Photo" as photostatus,
+       "Assistant Organizer" as assistantorganizer,
+       "Mailing List" as mailingliststatus,
+       "URL of Member Profile" as memberprofile,
+       'NA' as companyname,
+       'NA' as topicsofinterest
+FROM FLOWFILE
+
 
 ````
 
