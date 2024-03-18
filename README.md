@@ -106,6 +106,11 @@ select fullname, companyname, topicsofinterest, memberprofile, userid, memberid,
 from postgres_jdbc_meetupusers
 where fullname like '%Spann%'
 
+select * 
+from postgres_jdbc_slackusers
+ where messageusername like '%Spann%'
+
+
 
 ````
 
